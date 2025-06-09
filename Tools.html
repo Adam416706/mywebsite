@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+<head>
+   
+    <title>Tools - DSPD 1703</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .navbar {
+            background: rgba(255, 255, 255, 0.95) !important;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .main-content {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin: 2rem 0;
+            padding: 2rem;
+            min-height: 600px;
+        }
+        
+        .tool-card {
+            background: linear-gradient(145deg, #f8f9ff, #e8ecff);
+            border: none;
+            border-radius: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border: none;
+            border-radius: 25px;
+            padding: 10px 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(45deg, #6c757d, #5a6268);
+            border: none;
+            border-radius: 25px;
+            padding: 10px 30px;
+            transition: all 0.3s ease;
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(108, 117, 125, 0.4);
+        }
+        
+        .form-control {
+            border-radius: 10px;
+            border: 2px solid #e8ecff;
+            padding: 12px;
+        }
+        
+        .form-control:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+        }
+        
+        .result-display {
+            background: linear-gradient(145deg, #f8f9ff, #e8ecff);
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 20px;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #4a5568;
+        }
+        
+        .page-title {
+            color: #667eea;
+            font-weight: bold;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .footer {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            margin-top: 3rem;
+            padding: 2rem 0;
+            text-align: center;
+            color: #4a5568;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="fas fa-user-circle me-2"></i>My Portfolio
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <i class="fas fa-home me-1"></i>Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="personalinfo.html">
+                            <i class="fas fa-user me-1"></i>Personal Info
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="tools.html">
+                            <i class="fas fa-tools me-1"></i>Tools
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="main-content">
+            <h1 class="page-title">Useful Tools</h1>
+            
+            <!-- Calculator -->
+            <div class="card tool-card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-calculator me-2"></i>Simple Calculator</h5>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label class="form-label">First Number:</label>
+                            <input type="number" id="num1" step="any" class="form-control" placeholder="Enter first number">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Second Number:</label>
+                            <input type="number" id="num2" step="any" class="form-control" placeholder="Enter second number">
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <button class="btn btn-primary me-2" onclick="calculate('add')">Add</button>
+                        <button class="btn btn-primary me-2" onclick="calculate('subtract')">Subtract</button>
+                        <button class="btn btn-primary me-2" onclick="calculate('multiply')">Multiply</button>
+                        <button class="btn btn-primary me-2" onclick="calculate('divide')">Divide</button>
+                        <button class="btn btn-secondary me-2" onclick="clearFields()">Clear</button>
+                    </div>
+                    <div id="result" class="result-display">Result will appear here</div>
+                </div>
+            </div>
+            
+            <!-- BMI Checker -->
+            <div class="card tool-card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-weight me-2"></i>BMI Checker</h5>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label class="form-label">Weight (kg):</label>
+                            <input type="number" id="bmi-weight" class="form-control" placeholder="Enter weight in kg">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Height (cm):</label>
+                            <input type="number" id="bmi-height" class="form-control" placeholder="Enter height in cm">
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <button class="btn btn-primary" onclick="calculateBMI()">Calculate BMI</button>
+                    </div>
+                    <div id="bmi-result" class="result-display">BMI result will appear here</div>
+                </div>
+            </div>
+            
+            <!-- Income Tax Calculator -->
+            <div class="card tool-card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-money-bill-wave me-2"></i>Income Tax Calculator</h5>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label class="form-label">Annual Income (RM):</label>
+                            <input type="number" id="tax-income" class="form-control" placeholder="Enter annual income in RM">
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <button class="btn btn-primary" onclick="calculateTax()">Calculate Tax</button>
+                    </div>
+                    <div id="tax-result" class="result-display">Tax calculation will appear here</div>
+                </div>
+            </div>
+            
+            <!-- Unit Converter -->
+            <div class="card tool-card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-exchange-alt me-2"></i>Unit Converter</h5>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label class="form-label">Enter Value:</label>
+                            <input type="number" id="converter-input" class="form-control" placeholder="Enter value to convert">
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <button class="btn btn-primary me-2" onclick="convert('cmToM')">cm to metre</button>
+                        <button class="btn btn-primary me-2" onclick="convert('mToCm')">Metre to cm</button>
+                        <button class="btn btn-primary me-2" onclick="convert('mToKm')">Metre to km</button>
+                        <button class="btn btn-primary me-2" onclick="convert('kmToM')">Km to metre</button>
+                    </div>
+                    <div id="converter-result" class="result-display">Conversion result will appear here</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Adam. DSPD 1703: Individual Project. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Calculator Functions
+        function calculate(operation) {
+            const num1 = parseFloat(document.getElementById("num1").value);
+            const num2 = parseFloat(document.getElementById("num2").value);
+            let result;
+
+            if (isNaN(num1) || isNaN(num2)) {
+                document.getElementById("result").innerText = "Enter valid numbers.";
+                return;
+            }
+
+            switch (operation) {
+                case 'add':
+                    result = num1 + num2;
+                    break;
+                case 'subtract':
+                    result = num1 - num2;
+                    break;
+                case 'multiply':
+                    result = num1 * num2;
+                    break;
+                case 'divide':
+                    if (num2 === 0) {
+                        document.getElementById("result").innerText = "Cannot divide by zero!";
+                        return;
+                    }
+                    result = num1 / num2;
+                    break;
+            }
+
+            document.getElementById("result").innerText = "Result: " + result;
+        }
+
+        function clearFields() {
+            document.getElementById("num1").value = "";
+            document.getElementById("num2").value = "";
+            document.getElementById("result").innerText = "Result will appear here";
+        }
+
+        // BMI Calculator
+        function calculateBMI() {
+            const weight = parseFloat(document.getElementById('bmi-weight').value);
+            const height = parseFloat(document.getElementById('bmi-height').value);
+            
+            if (isNaN(weight) || isNaN(height) || weight <= 0 || height <= 0) {
+                document.getElementById('bmi-result').innerHTML = 'Please enter valid weight and height';
+                return;
+            }
+            
+            const heightInMeters = height / 100;
+            const bmi = weight / (heightInMeters * heightInMeters);
+            let category;
+            
+            if (bmi < 18.5) {
+                category = 'Underweight';
+            } else if (bmi < 25) {
+                category = 'Normal weight';
+            } else if (bmi < 30) {
+                category = 'Overweight';
+            } else {
+                category = 'Obese';
+            }
+            
+            document.getElementById('bmi-result').innerHTML = `BMI: ${bmi.toFixed(2)} (${category})`;
+        }
+
+        // Tax Calculator (Malaysian Tax Rates)
+        function calculateTax() {
+            const income = parseFloat(document.getElementById('tax-income').value);
+            
+            if (isNaN(income) || income < 0) {
+                document.getElementById('tax-result').innerHTML = 'Please enter a valid income amount.';
+                return;
+            }
+            
+            let tax = 0;
+            
+            if (income <= 5000) {
+                tax = 0;
+            } else if (income <= 20000) {
+                tax = 150;
+            } else if (income <= 35000) {
+                tax = 450;
+            } else if (income <= 50000) {
+                tax = 1200;
+            } else if (income <= 70000) {
+                tax = 2600;
+            } else if (income <= 100000) {
+                tax = 6300;
+            } else if (income <= 150000) {
+                tax = 13300;
+            } else if (income <= 250000) {
+                tax = 30700;
+            } else if (income <= 400000) {
+                tax = 86700;
+            } else if (income <= 600000) {
+                tax = 186900;
+            } else if (income <= 1000000) {
+                tax = 318400;
+            } else if (income <= 2000000) {
+                tax = 605900;
+            } else {
+                tax = 1124900;
+            }
+            
+            document.getElementById('tax-result').innerHTML = `Your estimated income tax is: RM ${tax.toLocaleString()}`;
+        }
+
+        // Unit Converter
+        function convert(type) {
+            const value = parseFloat(document.getElementById('converter-input').value);
+            
+            if (isNaN(value)) {
+                document.getElementById('converter-result').innerHTML = 'Please enter a valid number';
+                return;
+            }
+            
+            let result, unit;
+            
+            switch(type) {
+                case 'cmToM':
+                    result = value / 100;
+                    unit = 'metres';
+                    break;
+                case 'mToCm':
+                    result = value * 100;
+                    unit = 'centimetres';
+                    break;
+                case 'mToKm':
+                    result = value / 1000;
+                    unit = 'kilometres';
+                    break;
+                case 'kmToM':
+                    result = value * 1000;
+                    unit = 'metres';
+                    break;
+            }
+            
+            document.getElementById('converter-result').innerHTML = `${value} converts to ${result} ${unit}`;
+        }
+    </script>
+</body>
+</html>

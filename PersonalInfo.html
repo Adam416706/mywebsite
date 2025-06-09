@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Personal Information - DSPD 1703</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .navbar {
+            background: rgba(255, 255, 255, 0.95) !important;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        .main-content {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin: 2rem 0;
+            padding: 2rem;
+            min-height: 600px;
+        }
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #667eea;
+            margin-bottom: 1rem;
+        }
+        .btn-primary {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border: none;
+            border-radius: 25px;
+            padding: 10px 30px;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        .btn-outline-primary {
+            border-color: #667eea;
+            color: #667eea;
+            border-radius: 25px;
+            padding: 10px 30px;
+            transition: all 0.3s ease;
+        }
+        .btn-outline-primary:hover {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-color: #667eea;
+            color: white;
+            transform: translateY(-2px);
+        }
+        .page-title {
+            color: #667eea;
+            font-weight: bold;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .footer {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            margin-top: 3rem;
+            padding: 2rem 0;
+            text-align: center;
+            color: #4a5568;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="fas fa-user-circle me-2"></i>My Portfolio
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <i class="fas fa-home me-1"></i>Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="personalinfo.html">
+                            <i class="fas fa-user me-1"></i>Personal Info
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tools.html">
+                            <i class="fas fa-tools me-1"></i>Tools
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="main-content">
+            <h1 class="page-title">Personal Information</h1>
+            <div class="row">
+                <div class="col-md-4 text-center">
+                    <img src="gambar untuk projek.jpg" alt="Profile Photo" class="profile-img">
+                </div>
+                <div class="col-md-8">
+                    <h3>Adam Bin Low Tong Heng</h3>
+                    <div class="mt-4">
+                        <h5>Matric Number</h5>
+                        <p>A24DW0280</p>
+                        
+                        <h5>Program</h5>
+                        <p>Diploma of Computer Science</p>
+                        
+                        <h5>Personal Interests</h5>
+                        <p>Web Development, Gaming, Photography, and Playing Sport</p>
+                        
+                        
+                        <p>
+                            <a href="cv.html" target="_blank" class="btn btn-outline-primary me-2">
+                                <i class="fas fa-eye me-1"></i>View CV (HTML)
+                            </a>
+                            <a href="./cv.pdf" download class="btn btn-primary">
+                                <i class="fas fa-download me-1"></i>Download CV (PDF)
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Adam Bin Low Tong Heng. DSPD 1703: Individual Project. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
